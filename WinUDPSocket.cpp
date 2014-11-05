@@ -1,9 +1,7 @@
-#include "WinUDPSocket.h"
 #include "stdafx.h"
-#include "winsock.h"
+#include "WinUDPSocket.h"
 #include <iostream>
 #include <string>
-#pragma comment(lib, "Ws2_32.lib")
 
 bool WinUDPSocket::isFirstSocket = true;
 
@@ -14,7 +12,7 @@ WinUDPSocket::WinUDPSocket(int port)
 		isFirstSocket = false;
 		std::cout << "Started winsock API... " << std::endl; 
 	}
-	socketFd = (AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+	socketFd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	configureSocketAddressInfo(port);
 	bindSocket();
 }
@@ -71,6 +69,7 @@ int WinUDPSocket::bindSocket()
 
 int WinUDPSocket::startWinsock()
 {
+	WSAData wsaData;
 	int error = WSAStartup(0x0202, &wsaData);
 	if (error) {
 		std::cout << "Error starting winsock API." << std::endl;

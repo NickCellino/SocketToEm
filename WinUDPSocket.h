@@ -1,4 +1,6 @@
 #pragma once
+#include <winsock.h>
+#pragma comment(lib, "Ws2_32.lib")
 
 class WinUDPSocket
 {
@@ -14,7 +16,6 @@ private:
 	SOCKET socketFd;
 	SOCKADDR_IN sock_in_addr;
 	SOCKADDR_IN last_address;
-	static WSAData wsaData;
 	static bool isFirstSocket;
 	
 };
