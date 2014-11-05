@@ -12,7 +12,7 @@ WinUDPSocket::WinUDPSocket(int port)
 	if (this->isFirstSocket) {
 		startWinsock();
 		isFirstSocket = false;
-		std::cout << "started winsock API... " << std::endl; 
+		std::cout << "Started winsock API... " << std::endl; 
 	}
 	socketFd = (AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	configureSocketAddressInfo(port);
@@ -22,6 +22,7 @@ WinUDPSocket::WinUDPSocket(int port)
 
 WinUDPSocket::~WinUDPSocket()
 {
+	WSACleanup();
 }
 
 int WinUDPSocket::receiveData(char *buffer, int maxPacketSize) {
@@ -36,42 +37,18 @@ int WinUDPSocket::receiveData(char *buffer, int maxPacketSize) {
 		return SOCKET_ERROR;
 	}
 
-	//last_address = source;
+	last_address = source;
 	return received;
 }
 
-int WinUDPSocket::sendData(char *buffer, int len)
-{
-	// TODO
-	return 1;
+int WinUDPSocket::sendData(char* buffer, int len, char* host, int port){
+	sockaddr_in destination;
+	destination.sin_family = AF_INET;
+	destination.sin_addr.s_addr = inet_addr(host);
+	destination.sin_port = htons(port);
+
+	return sendto(socketFd, buffer, len, 0, (sockaddr*)&destination, sizeof(destination));
 }
-//
-//void WinUDPSocket::listenForPackets(int maxPacketSize) 
-//{
-//	char *dataBuffer = new char[2 * maxPacketSize];
-//	int dataBufferLength = 2 * maxPacketSize;
-//	while (1) {
-//		SOCKADDR_IN originAddr;
-//		int connInfoSize = sizeof(originAddr);
-//		recvfrom(sockFd, dataBuffer, )
-//	}
-//}
-//
-//void WinUDPSocket::putPacketOnQueue(DataPacket dataPacket) 
-//{
-//	dataPackets.push(dataPacket);
-//}
-//
-//bool WinUDPSocket::hasNewPacket() {
-//	if (dataPackets.empty()) 
-//	{
-//		return false;
-//	}
-//	else
-//	{
-//		return true;
-//	}
-//}
 
 void WinUDPSocket::configureSocketAddressInfo(int port) 
 {

@@ -1,11 +1,4 @@
 #pragma once
-#include <queue>
-
-struct DataPacket {
-	char *beginning;
-	int length;
-};
-
 
 class WinUDPSocket
 {
@@ -16,15 +9,11 @@ public:
 	int bindSocket();
 	int startWinsock();
 	int receiveData(char *buffer, int maxPacketSize);
-	int sendData(char *buffer, int len);
-	//void listenForPackets(int maxPacketSize);
-	//bool hasNewPacket();
-	//DataPacket popPacketFromQueue();
+	int sendData(char* buffer, int len, char* host, int port);
 private:
-	//void putPacketOnQueue(DataPacket dataPacket);
-	//std::queue<DataPacket> dataPackets;
 	SOCKET socketFd;
 	SOCKADDR_IN sock_in_addr;
+	SOCKADDR_IN last_address;
 	static WSAData wsaData;
 	static bool isFirstSocket;
 	
