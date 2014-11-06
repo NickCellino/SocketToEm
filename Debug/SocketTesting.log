@@ -1,0 +1,12 @@
+﻿Build started 11/5/2014 11:03:37 PM.
+     1>Project "D:\Code\VS\SocketTesting\SocketTesting\SocketTesting.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         D:\Program Files (x86)\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Code\VS\SocketTesting\Debug\SocketTesting.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\C++_Libraries\opencv\build\x86\vc12\lib /LIBPATH:"D:\C++_Libraries\CL-Eye Platform SDK\Lib" /LIBPATH:"D:\C++_Libraries\CL-Eye Platform SDK\Lib\opencv2" CLEyeMulticam.lib Comctl32.lib opencv_calib3d2410d.lib opencv_contrib2410d.lib opencv_core2410d.lib opencv_features2d2410d.lib opencv_flann2410d.lib opencv_gpu2410d.lib opencv_haartraining_engined.lib opencv_highgui2410d.lib opencv_imgproc2410d.lib opencv_legacy2410d.lib opencv_ml2410d.lib opencv_objdetect2410d.lib opencv_video2410d.lib libjasperd.lib libjpegd.lib libpngd.lib libtiffd.lib zlibd.lib vfw32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Code\VS\SocketTesting\Debug\SocketTesting.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Code\VS\SocketTesting\Debug\SocketTesting.lib" /MACHINE:X86 Debug\SocketTesting.obj
+         Debug\stdafx.obj
+         Debug\WinUDPSocket.obj
+         SocketTesting.vcxproj -> D:\Code\VS\SocketTesting\Debug\SocketTesting.exe
+     1>Done Building Project "D:\Code\VS\SocketTesting\SocketTesting\SocketTesting.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.22
